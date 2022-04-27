@@ -3,13 +3,12 @@
 struct Shop {
 	string name;
 	string location;
-	int Arrsize = 5;
-	Shoes* arrShoes = new Shoes[Arrsize]{ {"Adidas",32,31.3}, 
-		{"Puma",31,32.3},
-		{"Adidas",30,33.3},
-		{"Nike",34,34.3},
-		{"Adidas",37,36.3}};
+	int ArrSize = 0;
+	Shoes* arrShoes;
+	void SetShopNameLocation();
 	void ShopName();
 	void ShopLocation();
 	
 };
+void shoeSearch(string modelName, int size, Shop ArrShops);
+void SellerSearch(string name, Shoes* arrShoes, int arrSize);

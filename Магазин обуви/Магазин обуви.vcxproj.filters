@@ -57,5 +57,8 @@
     <ClInclude Include="..\Core\Model\Model.h">
       <Filter>Core\Model</Filter>
     </ClInclude>
+    <ClInclude Include="..\UI\Menu\Menu.h">
+      <Filter>UI\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

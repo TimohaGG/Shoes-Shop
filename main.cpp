@@ -1,7 +1,6 @@
-#include "Core/Entities/Shop/Shop.h"
+#include "UI/Menu/Menu.h"
 int main() {
 	setlocale(0,"");
-	Shop arr[3];
-	shoeSearch("Adidas", 30,arr[0].arrShoes,arr[0].Arrsize);
+	Menu menu;
 	return 0;
 }

@@ -1,7 +1,7 @@
 #include "Shues.h"
-
+#include "../Shop/Shop.h"
 void Shoes::shoePrint() {
-	cout << "<-------------------->"<<endl;
+	
 	cout << "Модель: " << modelName << endl;
 	cout << "Размер: " << size << endl;
 	cout << "Цена:   " << price << endl;
@@ -11,23 +11,14 @@ void Shoes::shoePrint() {
 void Shoes::shoeFill() {
 	cout << "Введите модель        : ";
 	getline(cin, modelName);
-	cout << endl << "Введите размер: ";
+	cout << "Введите размер: ";
 	cin >> size;
-	cout << endl << "Введите цену  : ";
+	cout  << "Введите цену  : ";
 	cin >> price;
-	cout << endl;
+	cin.ignore();
+	CLEAR;
 }
 
-void shoeSearch(string modelName, int size, Shoes* arr, int arrSize) {
-	bool found = false;
-	for (size_t i = 0; i < arrSize; i++)
-	{
-		if (arr[i].modelName == modelName&&arr[i].size==size) {
-			arr[i].shoePrint();
-		}
 
-	}
-	if (found)cout << "Такой модели нету!" << endl;
-}
 
 
