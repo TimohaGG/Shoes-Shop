@@ -10,6 +10,4 @@ struct Shoes {
 	void shoePrint();
 	void shoeFill();
 };
-void shoeSearch(string modelName, Shoes* arr, int arrSize);
-void shoeSearch(int size, Shoes* arr, int arrSize);
-void shoeSearch(double price, Shoes* arr, int arrSize);
+void shoeSearch(string modelName, int size, Shoes* arr, int arrSize);

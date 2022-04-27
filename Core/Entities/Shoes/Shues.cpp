@@ -18,11 +18,11 @@ void Shoes::shoeFill() {
 	cout << endl;
 }
 
-void shoeSearch(string modelName, Shoes* arr, int arrSize) {
+void shoeSearch(string modelName, int size, Shoes* arr, int arrSize) {
 	bool found = false;
 	for (size_t i = 0; i < arrSize; i++)
 	{
-		if (arr[i].modelName == modelName) {
+		if (arr[i].modelName == modelName&&arr[i].size==size) {
 			arr[i].shoePrint();
 		}
 
@@ -30,27 +30,4 @@ void shoeSearch(string modelName, Shoes* arr, int arrSize) {
 	if (found)cout << "Такой модели нету!" << endl;
 }
 
-void shoeSearch(int size, Shoes* arr, int arrSize) {
-	bool found = false;
-	for (size_t i = 0; i < arrSize; i++)
-	{
-		if (arr[i].size == size) {
-			arr[i].shoePrint();
-		}
-
-	}
-	if (found)cout << "Такого размера нету!" << endl;
-}
-
-void shoeSearch(double price, Shoes* arr, int arrSize){
-	bool found = false;
-	for (size_t i = 0; i < arrSize; i++)
-	{
-		if (arr[i].price == price) {
-			arr[i].shoePrint();
-		}
-
-	}
-	if (found)cout << "Такой цены нету!" << endl;
-}
 
