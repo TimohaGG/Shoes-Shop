@@ -8,6 +8,16 @@ void Shoes::shoePrint() {
 	cout << "<-------------------->" << endl;
 }
 
+void Shoes::shoeFill() {
+	cout << "¬ведите модель        : ";
+	getline(cin, modelName);
+	cout << endl << "¬ведите размер: ";
+	cin >> size;
+	cout << endl << "¬ведите цену  : ";
+	cin >> price;
+	cout << endl;
+}
+
 void shoeSearch(string modelName, Shoes* arr, int arrSize) {
 	bool found = false;
 	for (size_t i = 0; i < arrSize; i++)
