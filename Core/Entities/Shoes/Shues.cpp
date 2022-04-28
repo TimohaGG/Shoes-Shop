@@ -1,4 +1,3 @@
-#include "Shues.h"
 #include "../Shop/Shop.h"
 void Shoes::shoePrint() {
 	
