@@ -8,4 +8,4 @@ struct Shoes {
 	void shoePrint();
 	void shoeFill();
 };
-
+void ShowShoes(Shoes* arr, int size);

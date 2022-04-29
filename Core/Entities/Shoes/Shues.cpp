@@ -3,8 +3,7 @@ void Shoes::shoePrint() {
 	
 	cout << "Модель: " << modelName << endl;
 	cout << "Размер: " << size << endl;
-	cout << "Цена:   " << price << endl;
-	cout << "<-------------------->" << endl;
+	cout << "Цена:   " << price << endl<<endl;
 }
 
 void Shoes::shoeFill() {
@@ -16,6 +15,9 @@ void Shoes::shoeFill() {
 	cin >> price;
 	cin.ignore();
 	CLEAR;
+}
+void ShowShoes(Shoes* arr,int size) {
+	
 }
 
 

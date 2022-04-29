@@ -1,12 +1,10 @@
 #include"Shop.h"
 void Shop::ShopName() {
-	cout << "<!---------"<<name<<"--------!>"<<endl;
-		
+	cout <<name<<endl;	
 }
 
 void Shop::ShopLocation() {
-	cout << "<!---------" << location << "--------!>" << endl;
-
+	cout <<location << endl;
 }
 
 void SellerSearch(string name, Shoes* arrShoes, int arrSize) {
@@ -53,11 +51,23 @@ void shoeSearch(string modelName, int size, Shop ArrShops) {
 		if (ArrShops.arrShoes[i].modelName == modelName && ArrShops.arrShoes[i].size == size) {
 			ArrShops.ShopName();
 			ArrShops.arrShoes[i].shoePrint();
-			cout << "<------------------------>" << endl;
 			found = true;
 		}
 
 	}
 	if (!found)cout << "Такой модели нету!" << endl;
+}
+
+void ShowShops(Shop* ArrShops, int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << i + 1 << ". ";
+		ArrShops[i].ShopName();
+	}
+}
+
+void OrderShoes(Shop& arrToOrder,Shop& arrToDeliver, int ShoeToOrderI) {
+	//add new shoe
+	arrToOrder.ArrShoesSize++;
 }
 

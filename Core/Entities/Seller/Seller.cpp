@@ -27,3 +27,5 @@ Seller addSeller(string name, Seller*& SellersArr, int& size) {
 	}
 	return* SellersArr;
 }
+
+

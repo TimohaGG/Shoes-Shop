@@ -5,4 +5,3 @@ struct Seller {
 };
 
 Seller addSeller(string name, Seller*& SellersArr, int& size);
-Seller sellerSearch();

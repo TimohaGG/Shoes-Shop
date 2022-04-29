@@ -149,7 +149,6 @@
     <ClInclude Include="..\Core\Entities\Shoes\Shues.h" />
     <ClInclude Include="..\Core\Entities\Shop\Shop.h" />
     <ClInclude Include="..\Core\Lib\Lib.h" />
-    <ClInclude Include="..\Core\Model\Model.h" />
     <ClInclude Include="..\UI\Menu\Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

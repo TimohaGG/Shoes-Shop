@@ -13,9 +13,6 @@
     <Filter Include="Core\Lib">
       <UniqueIdentifier>{8d498073-9977-4f06-8c45-378091ae9f6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Model">
-      <UniqueIdentifier>{4d3c84ff-5da6-4d9a-8104-9976ad51d624}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core\Entities\Seller">
       <UniqueIdentifier>{d6a60abe-da3e-4c24-a2bb-c6efb1922ec9}</UniqueIdentifier>
     </Filter>
@@ -53,9 +50,6 @@
     </ClInclude>
     <ClInclude Include="..\Core\Lib\Lib.h">
       <Filter>Core\Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Core\Model\Model.h">
-      <Filter>Core\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\UI\Menu\Menu.h">
       <Filter>UI\Menu</Filter>
