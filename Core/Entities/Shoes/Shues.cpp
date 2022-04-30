@@ -7,7 +7,7 @@ void Shoes::shoePrint() {
 }
 
 void Shoes::shoeFill() {
-	cout << "¬ведите модель        : ";
+	cout << "¬ведите модель: ";
 	getline(cin, modelName);
 	cout << "¬ведите размер: ";
 	cin >> size;

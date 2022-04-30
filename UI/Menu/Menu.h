@@ -18,6 +18,7 @@ struct Menu {
 			cout << "3. Поиск определенного продавца в сети магазинов" << endl;
 			cout << "4. Поиск определенной пары обуви в сети магазинов" << endl;
 			cout << "5. Заказ определенной пары обуви из одного магазина в другой" << endl;
+			cout << "6. Показать магазины и товары"<<endl;
 			cout << "<--------------------------------------------------------->" << endl;
 			int choise;
 			cin >> choise;
@@ -62,31 +63,44 @@ struct Menu {
 				cout << endl<<"Введите размер: ";
 				int size;
 				cin >> size;
+				bool found = false;
 				for (size_t i = 0; i < shopsAmount; i++)
 				{
-					shoeSearch(name,size,ArrShops[i]);
+					if (ShoeSearch(name, size, ArrShops[i])) found = true;
 				}
+				if (!found)cout << "Такой модели нету!" << endl;
 			}break;
 			case 5: {
 				cout << "Из какого магазина доставить обувь?"<<endl;
 				ShowShops(ArrShops, shopsAmount);
 				int ShopToOrderI;
 				cin >> ShopToOrderI;
+				CLEAR;
 				cout << "Какую обувь доставить?" << endl;
 				int ShoeToOrderI;
 				ShowShoes(ArrShops[ShopToOrderI].arrShoes, ArrShops[ShopToOrderI].ArrShoesSize);
 				cin >> ShoeToOrderI;
 				CLEAR;
-				cout << "Куда доставить?";
-				ShowShops(ArrShops, shopsAmount);
 				int ShopToDeliverI;
-				cin >> ShopToDeliverI;
+				do {
+					cout << "Куда доставить?"<<endl;
+					ShowShops(ArrShops, shopsAmount);
+					cin >> ShopToDeliverI;
+				} while (ShopToDeliverI == ShopToOrderI);
+					
 				OrderShoes(ArrShops[ShopToOrderI-1], ArrShops[ShopToDeliverI-1], ShoeToOrderI-1);
 				
-				PAUSE;
-				ShowShopsAndInf(ArrShops, shopsAmount);
+				
 			}break;
+			case 6: {
+				ShowShopsAndInf(ArrShops, shopsAmount);
+				}break;
+			default: {
+				exit(0);
 			}
+			}
+
+			
 			PAUSE;
 			CLEAR;
 		}

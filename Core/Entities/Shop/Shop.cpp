@@ -1,10 +1,10 @@
 #include"Shop.h"
 void Shop::ShopName() {
-	cout <<name<<endl;	
+	cout <<"-------" << name <<"-------" << endl;
 }
 
 void Shop::ShopLocation() {
-	cout <<location << endl;
+	cout << "Местоположение: " <<location  << endl;
 }
 
 void SellerSearch(string name, Shoes* arrShoes, int arrSize) {
@@ -29,12 +29,7 @@ void fillShoes(Shoes* arrShoes, int arrSize) {
 	}
 }
 
-void showShoes(Shoes* arrShoes, int arrSize) {
-	for (size_t i = 0; i < arrSize; i++)
-	{
-		arrShoes[i].shoePrint();
-	}
-}
+
 
 void Shop::SetShopNameLocation() {
 	cout << "Введите название магазина: ";
@@ -43,7 +38,7 @@ void Shop::SetShopNameLocation() {
 	cin >> location;
 }
 
-void shoeSearch(string modelName, int size, Shop ArrShops) {
+bool ShoeSearch(string modelName, int size, Shop ArrShops) {
 
 	bool found = false;
 	for (size_t i = 0; i < ArrShops.ArrShoesSize; i++)
@@ -55,7 +50,7 @@ void shoeSearch(string modelName, int size, Shop ArrShops) {
 		}
 
 	}
-	if (!found)cout << "Такой модели нету!" << endl;
+	return found;
 }
 
 void ShowShops(Shop* ArrShops, int size) {
@@ -94,6 +89,14 @@ void OrderShoes(Shop& arrToOrder, Shop& arrToDeliver, int ShoeToOrderI){
 			arrBuffer[i-1] = arrToOrder.arrShoes[i];
 		}
 	}
+	delete[] arrToOrder.arrShoes;
+	arrToOrder.arrShoes = new Shoes[arrToOrder.ArrShoesSize - 1];
+	for (size_t i = 0; i < arrToOrder.ArrShoesSize-1; i++)
+	{
+		arrToOrder.arrShoes[i] = arrBuffer[i];
+	}
+	delete[] arrBuffer;
+	arrToOrder.ArrShoesSize--;
 }
 
 void ShowShopsAndInf(Shop* arrShop, int size) {
@@ -101,10 +104,7 @@ void ShowShopsAndInf(Shop* arrShop, int size) {
 	{
 		arrShop[i].ShopName();
 		arrShop[i].ShopLocation();
-		for (size_t j = 0; j < arrShop[i].ArrShoesSize; j++)
-		{
-			arrShop[i].arrShoes[j].shoePrint();
-		}
+		ShowShoes(arrShop[i].arrShoes, arrShop[i].ArrShoesSize);
 	}
 }
 
