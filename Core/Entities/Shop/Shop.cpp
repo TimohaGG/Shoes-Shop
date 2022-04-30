@@ -66,8 +66,45 @@ void ShowShops(Shop* ArrShops, int size) {
 	}
 }
 
-void OrderShoes(Shop& arrToOrder,Shop& arrToDeliver, int ShoeToOrderI) {
+void OrderShoes(Shop& arrToOrder, Shop& arrToDeliver, int ShoeToOrderI){
 	//add new shoe
-	arrToOrder.ArrShoesSize++;
+	Shoes* arrBuffer = new Shoes[arrToDeliver.ArrShoesSize+1];
+	for (size_t i = 0; i < arrToDeliver.ArrShoesSize; i++)
+	{
+		arrBuffer[i] = arrToDeliver.arrShoes[i];
+	}
+	arrBuffer[arrToDeliver.ArrShoesSize] = arrToOrder.arrShoes[ShoeToOrderI];
+	delete[] arrToDeliver.arrShoes;
+	arrToDeliver.arrShoes = new Shoes[arrToDeliver.ArrShoesSize + 1];
+	for (size_t i = 0; i < arrToDeliver.ArrShoesSize+1; i++)
+	{
+		arrToDeliver.arrShoes[i] = arrBuffer[i];
+	}
+	delete[] arrBuffer;
+	arrToDeliver.ArrShoesSize++;
+	//delete shoe
+
+	arrBuffer = new Shoes[arrToOrder.ArrShoesSize - 1];
+	for (size_t i = 0; i < arrToOrder.ArrShoesSize; i++)
+	{
+		if (i < ShoeToOrderI) {
+			arrBuffer[i] = arrToOrder.arrShoes[i];
+		}
+		else if (i > ShoeToOrderI) {
+			arrBuffer[i-1] = arrToOrder.arrShoes[i];
+		}
+	}
+}
+
+void ShowShopsAndInf(Shop* arrShop, int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		arrShop[i].ShopName();
+		arrShop[i].ShopLocation();
+		for (size_t j = 0; j < arrShop[i].ArrShoesSize; j++)
+		{
+			arrShop[i].arrShoes[j].shoePrint();
+		}
+	}
 }
 

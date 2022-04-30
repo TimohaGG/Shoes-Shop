@@ -62,3 +62,4 @@ void ShowShops(Shop* ArrShops, int size);
 void shoeSearch(string modelName, int size, Shop ArrShops);
 void SellerSearch(string name, Shoes* arrShoes, int arrSize);
 void OrderShoes(Shop& arrToOrder, Shop& arrToDeliver, int ShoeToOrderI);
+void ShowShopsAndInf(Shop* ArrShops, int size);

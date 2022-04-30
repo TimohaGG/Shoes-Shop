@@ -17,7 +17,11 @@ void Shoes::shoeFill() {
 	CLEAR;
 }
 void ShowShoes(Shoes* arr,int size) {
-	
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << "---------"<<i+1<<"---------"<<endl;
+		arr[i].shoePrint();
+	}
 }
 
 

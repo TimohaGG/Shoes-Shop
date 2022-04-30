@@ -81,9 +81,10 @@ struct Menu {
 				ShowShops(ArrShops, shopsAmount);
 				int ShopToDeliverI;
 				cin >> ShopToDeliverI;
-				OrderShoes(ArrShops[ShopToOrderI], ArrShops[ShopToDeliverI], ShoeToOrderI);
+				OrderShoes(ArrShops[ShopToOrderI-1], ArrShops[ShopToDeliverI-1], ShoeToOrderI-1);
 				
 				PAUSE;
+				ShowShopsAndInf(ArrShops, shopsAmount);
 			}break;
 			}
 			PAUSE;
