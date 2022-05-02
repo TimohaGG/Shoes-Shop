@@ -19,11 +19,17 @@
     <Filter Include="Core\Entities\Game">
       <UniqueIdentifier>{16e3bdd2-431c-4837-bb7b-87da2dec5948}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Entities\User">
+      <UniqueIdentifier>{0d0ada92-1401-416b-a432-0726c09fc58e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\Core\Entities\Game\Game.cpp">
       <Filter>Core\Entities\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Core\Entities\User\User.cpp">
+      <Filter>Core\Entities\User</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="..\Core\Entities\Game\Game.h">
       <Filter>Core\Entities\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\Entities\User\User.h">
+      <Filter>Core\Entities\User</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@ using std::string;
 
 //<--------define-------->
 #define DEBUG
-#define GamesAvailable 10
+#define GamesAvailable 20
+
 
 

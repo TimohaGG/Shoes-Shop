@@ -1,9 +1,9 @@
-#include "Core/Entities/Game/Game.h"
+#include "Core/Entities/User/User.h"
 
 int main() {
 	srand(time(NULL));
 	setlocale(0,"");
-	Game* games = new Game[GamesAvailable];
-	fillGames(games);
-	showGames(games);
+	User user;
+	user.showGames();
+	
 }
