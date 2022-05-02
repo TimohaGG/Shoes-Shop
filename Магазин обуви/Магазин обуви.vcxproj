@@ -139,17 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Core\Entities\Seller\Seller.cpp" />
-    <ClCompile Include="..\Core\Entities\Shoes\Shues.cpp" />
-    <ClCompile Include="..\Core\Entities\Shop\Shop.cpp" />
     <ClCompile Include="..\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Core\Entities\Seller\Seller.h" />
-    <ClInclude Include="..\Core\Entities\Shoes\Shues.h" />
-    <ClInclude Include="..\Core\Entities\Shop\Shop.h" />
-    <ClInclude Include="..\Core\Lib\Lib.h" />
-    <ClInclude Include="..\Core\Model\Model.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
