@@ -12,4 +12,4 @@ using std::string;
 
 #define CLEAR system("cls")
 #define PAUSE system("pause")
-#define DEBUG
+//#define DEBUG
