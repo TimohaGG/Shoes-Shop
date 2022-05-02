@@ -19,6 +19,7 @@ struct Menu {
 			cout << "4. Поиск определенной пары обуви в сети магазинов" << endl;
 			cout << "5. Заказ определенной пары обуви из одного магазина в другой" << endl;
 			cout << "6. Показать магазины и товары"<<endl;
+			cout << "0. Выход"<<endl;
 			cout << "<--------------------------------------------------------->" << endl;
 			int choise;
 			cin >> choise;
@@ -71,25 +72,33 @@ struct Menu {
 				if (!found)cout << "Такой модели нету!" << endl;
 			}break;
 			case 5: {
-				cout << "Из какого магазина доставить обувь?"<<endl;
-				ShowShops(ArrShops, shopsAmount);
 				int ShopToOrderI;
-				cin >> ShopToOrderI;
+				do {
+					cout << "Из какого магазина доставить обувь?" << endl;
+					ShowShops(ArrShops, shopsAmount);
+					
+					cin >> ShopToOrderI;
+					CLEAR;
+				} while (ShopToOrderI>shopsAmount||ShopToOrderI<=0);
 				CLEAR;
-				cout << "Какую обувь доставить?" << endl;
+				
 				int ShoeToOrderI;
-				ShowShoes(ArrShops[ShopToOrderI].arrShoes, ArrShops[ShopToOrderI].ArrShoesSize);
+				do{
+				cout << "Какую обувь доставить?" << endl;
+				ShowShoes(ArrShops[ShopToOrderI - 1].arrShoes, ArrShops[ShopToOrderI - 1].ArrShoesSize);
 				cin >> ShoeToOrderI;
 				CLEAR;
+				} while (ShoeToOrderI> ArrShops[ShopToOrderI - 1].ArrShoesSize||ShoeToOrderI<=0);
 				int ShopToDeliverI;
 				do {
 					cout << "Куда доставить?"<<endl;
 					ShowShops(ArrShops, shopsAmount);
 					cin >> ShopToDeliverI;
-				} while (ShopToDeliverI == ShopToOrderI);
+					CLEAR;
+				} while (ShopToDeliverI == ShopToOrderI||ShopToDeliverI<=0||ShopToDeliverI>shopsAmount);
 					
 				OrderShoes(ArrShops[ShopToOrderI-1], ArrShops[ShopToDeliverI-1], ShoeToOrderI-1);
-				
+				cout << "Доставка осуществляется!"<<endl<<"Спасибо что пользуетесь нашими услугами))"<<endl;
 				
 			}break;
 			case 6: {
