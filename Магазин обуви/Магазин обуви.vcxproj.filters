@@ -10,8 +10,31 @@
     <Filter Include="UI\Menu">
       <UniqueIdentifier>{c129ea6b-d25d-4c36-a82b-096e40fb1355}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Entities">
+      <UniqueIdentifier>{9df3b4a1-8ec9-4fca-a052-d17f1ad2270e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Lib">
+      <UniqueIdentifier>{fe261faa-58cf-44e1-9eed-89aa80e66e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Entities\Game">
+      <UniqueIdentifier>{16e3bdd2-431c-4837-bb7b-87da2dec5948}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\Core\Entities\Game\Game.cpp">
+      <Filter>Core\Entities\Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Core\Lib\Lib.h">
+      <Filter>Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UI\Menu\Menu.h">
+      <Filter>UI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Core\Entities\Game\Game.h">
+      <Filter>Core\Entities\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
