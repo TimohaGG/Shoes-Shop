@@ -30,13 +30,23 @@ string* GetGamesNames(string *&arr) {
 	return arr;
 }
 
+
+
 void Game::ShowGame() {
-	if (newGame)cout << "НОВИНКА!!" << endl;
-	cout << name << endl;
-	cout << "Вы играли: " << hoursPlayed << " часов" << endl;
+	if (newGame)PrintWord("Новинка!!");
+	
+	PrintWord(name);
+	PrintPhrase("Часов потрачено: ",hoursPlayed);
+	PrintPhrase("Достижений выполнено: ", achivements);
+	PrintPhrase("Рейтинг: ", raiting);
+	PrintPhrase("Загрузки: ", downloads);
+	PrintPhrase("Памяти требуется: ", memoryNeeded);
+	PrintWord("<------------------------->");
+	cout << endl << endl;
+	/*cout << "Часов потрачено: " << hoursPlayed << endl;
 	cout << "Достижений выполнено: " << achivements << " %" << endl;
 	cout << "Рейтинг: " << raiting << endl;
 	cout << "Загрузки: " << downloads << endl;
-	cout << "Памяти требуется: " << memoryNeeded << endl << endl;
+	cout << "Памяти требуется: " << memoryNeeded << endl << endl;*/
 	
 }

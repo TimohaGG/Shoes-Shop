@@ -17,3 +17,4 @@ struct Game {
 };
 int GetMaxGames();
 string* GetGamesNames(string*& arr);
+
