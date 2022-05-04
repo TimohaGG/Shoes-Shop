@@ -16,7 +16,8 @@ using std::ifstream;
 using std::setw;
 //<--------define-------->
 #define center 55
-#define foo(dig , str) char inStr[256];_itoa(dig,inStr,10);string phrase=str+dig;return phrase;
+#define CLEAR system("cls")
+#define PAUSE system("PAUSE")
 static int gamesAvailable=0;
 static string* gamesAvailableArr;
 

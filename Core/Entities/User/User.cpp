@@ -34,29 +34,44 @@ void User::ShowGames() {
 
 
 void ShowGamesPopular(User a) {
+	bool available = false;
 	for (size_t i = 0; i < a.userGamesAmount; i++)
 	{
 		if (a.userGames[i].downloads>70000) {
 			a.userGames[i].ShowGame();
+			available = true;
 		}
+	}
+	if (!available) {
+		cout << "Здесь ничего(" << endl;
 	}
 }
 
 void ShowGamesRecomendations(User a) {
+	bool available = false;
 	for (size_t i = 0; i < a.userGamesAmount; i++)
 	{
-		if (a.userGames[i].raiting > 8) {
+		if (a.userGames[i].raiting >5) {
 			a.userGames[i].ShowGame();
+			available = true;
 		}
+	}
+	if (!available) {
+		cout << "Здесь ничего(" << endl;
 	}
 }
 
 void ShowGamesNew(User a) {
+	bool available=false;
 	for (size_t i = 0; i < a.userGamesAmount; i++)
 	{
 		if (a.userGames[i].newGame) {
 			a.userGames[i].ShowGame();
+			available = true;
 		}
+	}
+	if (!available) {
+		cout << "Здесь ничего("<<endl;
 	}
 }
 

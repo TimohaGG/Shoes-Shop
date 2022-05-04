@@ -29,6 +29,7 @@ struct Menu {
 				exit(0);
 			}
 			else {
+				CLEAR;
 				menu[choise - 1](a);
 			}
 		}
@@ -39,22 +40,31 @@ struct Menu {
 
 
 void Shop(User a) {
-	
-	cout << "<----------Shop---------->" << endl;
-	cout << "1. Популярное" << endl
-		<< "2. Рекомендации" << endl
-		<< "3. Новинки" << endl
-		<< "0. Выход" << endl;
-	void(*menuShop[3])(User a) {ShowGamesPopular,ShowGamesRecomendations,ShowGamesNew};
-	int choise;
-	do
-	{
-		cin >> choise;
-	} while (choise < 0 || choise>3);
-	if (choise != 0) {
-		menuShop[choise - 1](a);
+	while (true) {
+		cout << "<----------Shop---------->" << endl;
+		cout << "1. Популярное" << endl
+			<< "2. Рекомендации" << endl
+			<< "3. Новинки" << endl
+			<< "0. Выход" << endl;
+		void(*menuShop[3])(User a) { ShowGamesPopular, ShowGamesRecomendations, ShowGamesNew };
+		int choise;
+		do
+		{
+			cin >> choise;
+		} while (choise < 0 || choise>3);
+		if (choise != 0) {
+			CLEAR;
+			menuShop[choise - 1](a);
+			
+		}
+		else {
+			break;
+		}
+		PAUSE;
+		CLEAR;
 	}
-	system("pause");
+	
+	CLEAR;
 }
 
 
