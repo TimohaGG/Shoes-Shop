@@ -1,7 +1,7 @@
 #include"Game.h"
 int GetMaxGames() {
 	string buf;
-	ifstream f1("../GamesInf/GamesNames.txt", ios::in);
+	ifstream f1("../Inf/GamesNames.txt", ios::in);
 	if (f1.is_open()) {
 		while (getline(f1, buf)) {
 			gamesAvailable++;
@@ -15,8 +15,24 @@ int GetMaxGames() {
 	return gamesAvailable;
 }
 
+int GetUsersAmount() {
+	string buf;
+	ifstream f1("../Inf/UserNames.txt", ios::in);
+	if (f1.is_open()) {
+		while (getline(f1, buf)) {
+			usersAmount++;
+		}
+		f1.close();
+	}
+	else {
+		cout << "Error opening file!!" << endl;
+	}
+
+	return usersAmount;
+}
+
 string* GetGamesNames(string *&arr) {
-	ifstream f2("../GamesInf/GamesNames.txt", ios::in);
+	ifstream f2("../Inf/GamesNames.txt", ios::in);
 	if (f2.is_open()) {
 		
 		for (size_t i = 0; getline(f2, arr[i]); i++) {
@@ -30,7 +46,20 @@ string* GetGamesNames(string *&arr) {
 	return arr;
 }
 
+string* GetUsersNames(string*& arr) {
+	ifstream f2("../Inf/UserNames.txt", ios::in);
+	if (f2.is_open()) {
 
+		for (size_t i = 0; getline(f2, arr[i]); i++) {
+
+		}
+		f2.close();
+	}
+	else {
+		cout << "Error openingfile!!" << endl;
+	}
+	return arr;
+}
 
 void Game::ShowGame() {
 	if (newGame)cout << "Новинка!!!"<<endl;

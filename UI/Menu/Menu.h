@@ -10,9 +10,13 @@ struct Menu {
 		
 		gamesAvailable = GetMaxGames();
 		gamesAvailableArr = new string[gamesAvailable];
+		usersAmount = GetUsersAmount();
+		userNames = new string[usersAmount];
 		GetGamesNames(gamesAvailableArr);
-		User a;
-		void(*menu[4])(User a) {Shop,Library,Community, Profile};
+		GetUsersNames(userNames);
+		User* user1=new User[usersAmount];
+		
+		void(*menu[4])(User user1) {Shop,Library,Community, Profile};
 		while (true) {
 			cout << "<----------Steam---------->" << endl;
 			cout << "1. Магазин" << endl
@@ -30,7 +34,7 @@ struct Menu {
 			}
 			else {
 				CLEAR;
-				menu[choise - 1](a);
+				menu[choise - 1](user1[0]);
 			}
 		}
 		
@@ -39,14 +43,14 @@ struct Menu {
 };
 
 
-void Shop(User a) {
+void Shop(User user1) {
 	while (true) {
 		cout << "<----------Shop---------->" << endl;
 		cout << "1. Популярное" << endl
 			<< "2. Рекомендации" << endl
 			<< "3. Новинки" << endl
 			<< "0. Выход" << endl;
-		void(*menuShop[3])(User a) { ShowGamesPopular, ShowGamesRecomendations, ShowGamesNew };
+		void(*menuShop[3])(User user1) { ShowGamesPopular, ShowGamesRecomendations, ShowGamesNew };
 		int choise;
 		do
 		{
@@ -54,7 +58,7 @@ void Shop(User a) {
 		} while (choise < 0 || choise>3);
 		if (choise != 0) {
 			CLEAR;
-			menuShop[choise - 1](a);
+			menuShop[choise - 1](user1);
 			
 		}
 		else {
@@ -71,21 +75,43 @@ void Shop(User a) {
 
 
 
-void Library(User a) {
-	cout << "<----------Library---------->" << endl;
-	cout << "1. Библиотека" << endl
-		<< "2. Загрузки" << endl
-		<< "0. Выход" << endl;
-	void(*menuLibrary[2])() {};
+void Library(User user1) {
+	while (true) {
+		cout << "<----------Library---------->" << endl;
+		cout << "1. Библиотека" << endl
+			<< "2. Загрузки" << endl
+			<< "0. Выход" << endl;
+		void(*menuLibrary[2])(User user1) { ShowGames, LibraryMenu };
+		int choise;
+		do
+		{
+			cin >> choise;
+		} while (choise < 0 || choise>2);
+		if (choise != 0) {
+			CLEAR;
+			menuLibrary[choise - 1](user1);
+
+		}
+		else {
+			break;
+		}
+		PAUSE;
+		CLEAR;
+	}
+	CLEAR;
 	system("pause");
 }
-void Community(User a) {
+
+void Community(User user1) {
 	cout << "<----------Community---------->" << endl;
 	cout << "1. Торговая площадка" << endl
+		<<"2. Показать пользователей"<<endl
 		<< "0. Выход" << endl;
+	//void (*menuCommunity[2])(User * &arr) {ShowNames,ShowNames};
+	//menuCommunity[0](user1);
 	system("pause");
 }
-void Profile(User a) {
+void Profile(User user1) {
 	cout << "<----------Profile---------->" << endl;
 	cout << "1. Профиль" << endl
 		<< "2. Друзья" << endl

@@ -20,6 +20,9 @@ using std::setw;
 #define PAUSE system("PAUSE")
 static int gamesAvailable=0;
 static string* gamesAvailableArr;
+static int usersAmount = 0;
+static string* userNames;
+static int index = 0;
 
 static void PrintPhrase(string phrase, int dig) {
     char inStr[256];
