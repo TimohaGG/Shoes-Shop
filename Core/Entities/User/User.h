@@ -13,6 +13,7 @@ struct User {
 			userGames[i].newGame = rand() % 2;
 			userGames[i].achivements = rand() % 100;
 			userGames[i].instaled = rand() % 2;
+			userGames[i].downloads = rand() % (1000000-90000)+70000;
 		}
 	}
 	//<-------fields-------->
@@ -27,3 +28,6 @@ struct User {
 	
 };
 
+void ShowGamesPopular(User a);
+void ShowGamesRecomendations(User a);
+void ShowGamesNew(User a);

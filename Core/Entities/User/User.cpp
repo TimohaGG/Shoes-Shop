@@ -31,3 +31,32 @@ void User::ShowGames() {
 	}
 }
 
+
+
+void ShowGamesPopular(User a) {
+	for (size_t i = 0; i < a.userGamesAmount; i++)
+	{
+		if (a.userGames[i].downloads>70000) {
+			a.userGames[i].ShowGame();
+		}
+	}
+}
+
+void ShowGamesRecomendations(User a) {
+	for (size_t i = 0; i < a.userGamesAmount; i++)
+	{
+		if (a.userGames[i].raiting > 8) {
+			a.userGames[i].ShowGame();
+		}
+	}
+}
+
+void ShowGamesNew(User a) {
+	for (size_t i = 0; i < a.userGamesAmount; i++)
+	{
+		if (a.userGames[i].newGame) {
+			a.userGames[i].ShowGame();
+		}
+	}
+}
+

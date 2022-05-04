@@ -1,16 +1,18 @@
 #pragma once
 #include"../../Core/Entities/User/User.h"
-void Shop();
-void Library();
-void Community();
-void Profile();
+void Shop(User a);
+void Library(User a);
+void Community(User a);
+void Profile(User a);
 
 struct Menu {
 	Menu() {
+		
 		gamesAvailable = GetMaxGames();
 		gamesAvailableArr = new string[gamesAvailable];
 		GetGamesNames(gamesAvailableArr);
-		void(*menu[4])() {Shop,Library,Community, Profile};
+		User a;
+		void(*menu[4])(User a) {Shop,Library,Community, Profile};
 		while (true) {
 			cout << "<----------Steam---------->" << endl;
 			cout << "1. Магазин" << endl
@@ -27,7 +29,7 @@ struct Menu {
 				exit(0);
 			}
 			else {
-				menu[choise - 1]();
+				menu[choise - 1](a);
 			}
 		}
 		
@@ -35,39 +37,31 @@ struct Menu {
 	
 };
 
-void Shop() {
+
+void Shop(User a) {
+	
 	cout << "<----------Shop---------->" << endl;
 	cout << "1. Популярное" << endl
 		<< "2. Рекомендации" << endl
-		<< "3. Статистика" << endl
+		<< "3. Новинки" << endl
 		<< "0. Выход" << endl;
-	void(*menuShop[3])() {Popular, Recomendations, Statistics};
+	void(*menuShop[3])(User a) {ShowGamesPopular,ShowGamesRecomendations,ShowGamesNew};
 	int choise;
 	do
 	{
 		cin >> choise;
 	} while (choise < 0 || choise>3);
 	if (choise != 0) {
-		menuShop[choise - 1]();
+		menuShop[choise - 1](a);
 	}
 	system("pause");
 }
 
-void Popular() {
-
-}
-
-void Recomendations() {
-
-}
-
-void Statistics() {
-
-}
 
 
 
-void Library() {
+
+void Library(User a) {
 	cout << "<----------Library---------->" << endl;
 	cout << "1. Библиотека" << endl
 		<< "2. Загрузки" << endl
@@ -75,13 +69,13 @@ void Library() {
 	void(*menuLibrary[2])() {};
 	system("pause");
 }
-void Community() {
+void Community(User a) {
 	cout << "<----------Community---------->" << endl;
 	cout << "1. Торговая площадка" << endl
 		<< "0. Выход" << endl;
 	system("pause");
 }
-void Profile() {
+void Profile(User a) {
 	cout << "<----------Profile---------->" << endl;
 	cout << "1. Профиль" << endl
 		<< "2. Друзья" << endl

@@ -36,5 +36,7 @@ void Game::ShowGame() {
 	cout << "Вы играли: " << hoursPlayed << " часов" << endl;
 	cout << "Достижений выполнено: " << achivements << " %" << endl;
 	cout << "Рейтинг: " << raiting << endl;
+	cout << "Загрузки: " << downloads << endl;
 	cout << "Памяти требуется: " << memoryNeeded << endl << endl;
+	
 }

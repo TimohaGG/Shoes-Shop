@@ -8,6 +8,7 @@ struct Game {
 	uint32_t raiting;
 	uint32_t achivements;
 	uint32_t memoryNeeded;
+	uint32_t downloads;
 	bool newGame;
 	bool instaled;
 
