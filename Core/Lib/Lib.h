@@ -26,7 +26,7 @@ static void PrintPhrase(string phrase, int dig) {
     string str = string(inStr);
     string s = phrase + str ;
 
-    int width_field = 100; //ширина поля
+    int width_field = 105; //ширина поля
     string v(width_field, ' '); //для наглядности заполняем точками
     string v1;
 
@@ -47,7 +47,7 @@ static void PrintPhrase(string phrase, int dig) {
 static void PrintWord(string phrase) {
    
 
-    int width_field = 100; //ширина поля
+    int width_field = 105; //ширина поля
     string v(width_field, ' '); //для наглядности заполняем точками
     string v1;
 
