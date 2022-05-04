@@ -1,18 +1,29 @@
-#pragma once
 #include "../Game/Game.h"
-
 struct User {
 	//<-------constructor-------->
 	User() {
-		fillGames(games, gamesAmount);
+		randNumber(arrNumbers, gamesAvailable, userGamesAmount);
+		
+		for (size_t i = 0; i < userGamesAmount; i++)
+		{
+			userGames[i].name = gamesAvailableArr[arrNumbers[i]];
+			userGames[i].hoursPlayed = rand() % 2000;
+			userGames[i].raiting = rand() % 10;
+			userGames[i].memoryNeeded = rand() % (120 - 10) + 10;
+			userGames[i].newGame = rand() % 2;
+			userGames[i].achivements = rand() % 100;
+			userGames[i].instaled = rand() % 2;
+		}
 	}
 	//<-------fields-------->
 	string UserName;
 	//<-----------games---------->
-	int gamesAmount=rand()% GamesAvailable;
-	Game* games = new Game[gamesAmount];
+	int userGamesAmount = rand() % ((gamesAvailable+1) -1)+1;
+	Game* userGames = new Game[userGamesAmount];
+	int* arrNumbers = new int[userGamesAmount];
 
-	//<-------methods-------->
-	void showGames();
+	void randNumber(int*& arrNumbers, int gamesAvailable, int userGamesAmount);
+	void ShowGames();
 	
 };
+

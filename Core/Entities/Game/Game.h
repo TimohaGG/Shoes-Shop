@@ -1,11 +1,7 @@
-#pragma once
 #include "../../Lib/Lib.h"
 
 struct Game {
-	 string GameNames[GamesAvailable];
-	 int* arrNumbers;
-	 int index = 0;
-	
+
 	//<--------fields-------->
 	string name;
 	double hoursPlayed;
@@ -18,8 +14,5 @@ struct Game {
 	//<--------methods-------->
 	void ShowGame();
 };
-
-
-void randNumber(int*& arr);
-Game fillGames(Game*& games, int userGames);
-
+int GetMaxGames();
+string* GetGamesNames(string*& arr);
