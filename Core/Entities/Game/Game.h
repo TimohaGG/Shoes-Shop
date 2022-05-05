@@ -15,7 +15,7 @@ struct Game {
 	//<--------methods-------->
 	void ShowGame();
 };
-int GetMaxGames();
+
 int GetUsersAmount();
 string* GetGamesNames(string*& arr);
 string* GetUsersNames(string*& arr);

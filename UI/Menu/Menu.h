@@ -8,41 +8,44 @@ void Profile(User a);
 struct Menu {
 	Menu() {
 		
-		gamesAvailable = GetMaxGames();
-		gamesAvailableArr = new string[gamesAvailable];
+		//gamesAvailable = GetMaxGames();
+		
 		usersAmount = GetUsersAmount();
 		userNames = new string[usersAmount];
 		GetGamesNames(gamesAvailableArr);
 		GetUsersNames(userNames);
+		
+		int* arrNumbersUserNames = new int[usersAmount];
+		randNumberUsernames(arrNumbersUserNames,  usersAmount);
+	
+		User* user1=new User[usersAmount];
 		for (size_t i = 0; i < usersAmount; i++)
 		{
-			cout << userNames[i]<<endl;
+			user1[i].fillUser(gamesAvailableArr);
 		}
-		int* arrNumbersUserNames = new int[usersAmount];
-		//randNumber(arrNumbersUserNames, usersAmount, usersAmount); //Допилить
-		User* user1=new User[usersAmount];
-		
-		Login(user1, usersAmount);
+		FillUsernames(user1, userNames, arrNumbersUserNames, usersAmount);
+		//int index= Login(user1, usersAmount);
+		int index=Registration(user1, usersAmount);
+		//Login(user1, usersAmount);
 
-		void(*menu[4])(User user1) {Shop,Library,Community, Profile};
+		void(*menu[3])(User user1) {Shop,Library, Profile};
 		while (true) {
 			cout << "<----------Steam---------->" << endl;
 			cout << "1. Магазин" << endl
 				<< "2. Библиотека" << endl
-				<< "3. Сообщество" << endl
 				<< "4. Профиль" << endl
 				<< "0. Выход" << endl;
 			int choise;
 			do
 			{
 				cin >> choise;
-			} while (choise < 0 || choise>4);
+			} while (choise < 0 || choise>3);
 			if (choise == 0) {
 				exit(0);
 			}
 			else {
 				CLEAR;
-				menu[choise - 1](user1[0]);
+				menu[choise - 1](user1[index]);
 			}
 		}
 		
@@ -110,21 +113,12 @@ void Library(User user1) {
 	
 }
 
-void Community(User user1) {
-	cout << "<----------Community---------->" << endl;
-	cout << "1. Торговая площадка" << endl
-		<<"2. Показать пользователей"<<endl
-		<< "0. Выход" << endl;
-	//void (*menuCommunity[2])(User * &arr) {ShowNames,ShowNames};
-	//menuCommunity[0](user1);
-	system("pause");
-}
+
 void Profile(User user1) {
 	cout << "<----------Profile---------->" << endl;
 	cout << "1. Профиль" << endl
 		<< "2. Друзья" << endl
-		<< "3. Инвентарь" << endl
 		<< "0. Выход" << endl;
-	void(*menuProfile[3])() {};
-	system("pause");
+	void(*menuProfile[3])(User a) {ShowProfile, };
+	
 }

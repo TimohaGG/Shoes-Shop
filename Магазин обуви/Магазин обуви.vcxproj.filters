@@ -31,6 +31,9 @@
     <ClCompile Include="..\Core\Entities\User\User.cpp">
       <Filter>Core\Entities\User</Filter>
     </ClCompile>
+    <ClCompile Include="..\Core\Lib\Lib.cpp">
+      <Filter>Core\Lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Core\Lib\Lib.h">

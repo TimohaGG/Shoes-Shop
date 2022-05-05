@@ -1,19 +1,6 @@
 #include"Game.h"
-int GetMaxGames() {
-	string buf;
-	ifstream f1("../Inf/GamesNames.txt", ios::in);
-	if (f1.is_open()) {
-		while (getline(f1, buf)) {
-			gamesAvailable++;
-		}
-		f1.close();
-	}
-	else {
-		cout << "Error opening file!!"<<endl;
-	}
-	
-	return gamesAvailable;
-}
+
+
 
 int GetUsersAmount() {
 	string buf;

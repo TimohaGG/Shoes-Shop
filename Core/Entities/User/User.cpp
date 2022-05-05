@@ -130,6 +130,7 @@ Game DownloadGame(User& a) {
 			CLEAR;
 		}
 		else {
+			return a.userGames[0];
 			break;
 		}
 	}
@@ -159,7 +160,10 @@ void LibraryMenu(User a)
 	
 }
 
-User Login(User* a, int usersAmount) {
+
+
+int Login(User* a, int usersAmount) {
+	bool loginOk = false;
 	while (true) {
 		cout << "Введите логин: " << endl;
 		string login;
@@ -168,6 +172,7 @@ User Login(User* a, int usersAmount) {
 		for (; i < usersAmount; i++)
 		{
 			if (a[i].UserName == login) {
+				loginOk = true;
 				cout << "Введите пароль: " << endl;
 				string password;
 				getline(cin, password);
@@ -175,22 +180,103 @@ User Login(User* a, int usersAmount) {
 					cout << "Добро пожаловать " << a[i].UserName << "!!" << endl;
 					PAUSE;
 					CLEAR;
-					return a[i];
+					return i;
 				}
 				else {
-					cout << "Неверный пароль!!!" << endl<<"Нажмите 0 для выхода";
-					int choise;
-					cin >> choise;
-					if (choise == 0) break;
-					else continue;
+					cout << "Неверный пароль!!!" << endl;
+					PAUSE;
+					CLEAR;
 				}
 				break;
 			}
+			
+		}
+		if (!loginOk) {
+			cout << "Такого логина нету!" << endl;
+			PAUSE;
+			CLEAR;
 		}
 	}
 	
 	
 	
+}
+
+void randNumberUsernames(int*& arrNumbers, int usernamesAvailable) {
+	arrNumbers[0] = rand() % usernamesAvailable;
+	for (size_t i = 1; i < usernamesAvailable; i++)
+	{
+		int number;
+		do {
+			number = rand() % usernamesAvailable;
+			//cout << number << endl;
+		} while (!noRepeat(arrNumbers, number, usernamesAvailable));
+		arrNumbers[i] = number;
+
+	}
+}
+
+User* FillUsernames(User*& users, string* usernames, int* arrNumbers, int usersAmount) {
+	for (size_t i = 0; i < usersAmount; i++)
+	{
+		users[i].UserName = usernames[arrNumbers[i]];
+	}
+	return users;
+}
+
+int Registration(User*& users, int& usersAmount) {
+	User* newUsers = new User[usersAmount+1];
+	for (size_t i = 0; i < usersAmount; i++)
+	{
+		newUsers[i] = users[i];
+	}
+	cout << "Введите логин"<<endl;
+	getline(cin, newUsers[usersAmount].UserName);
+	cout << "Введите пароль"<<endl;
+	getline(cin,newUsers[usersAmount].password);
+	newUsers[usersAmount].userGamesAmount = 0;
+	delete[] users;
+	users = new User[usersAmount + 1];
+	for (size_t i = 0; i < usersAmount+1; i++)
+	{
+		users[i] = newUsers[i];
+	}
+	usersAmount++;
+	delete[] newUsers;
+	return usersAmount-1;
+}
+
+void User::fillUser(string* gamesAvailableArr){
+	randNumber(arrNumbersGameNames, gamesAvailable, userGamesAmount);
+
+	password = "111";
+	for (size_t i = 0; i < userGamesAmount; i++)
+	{
+
+		userGames[i].name = gamesAvailableArr[arrNumbersGameNames[i]];
+		userGames[i].hoursPlayed = rand() % 2000;
+		userGames[i].raiting = rand() % 10;
+		userGames[i].memoryNeeded = rand() % (120 - 10) + 10;
+		userGames[i].newGame = rand() % 2;
+		userGames[i].achivements = rand() % 100;
+		userGames[i].instaled = rand() % 2;
+		userGames[i].downloads = rand() % (1000000 - 90000) + 70000;
+	}
+	}
+
+void ShowProfile(User a) {
+	cout << "Имя: " << a.UserName << endl;
+	cout << "Пароль: " << a.password << endl;
+	cout << "Всего игр: " << a.userGamesAmount << endl;
+	cout << "Библиотека: "<<endl;
+	for (size_t i = 0; i < a.userGamesAmount; i++)
+	{
+		cout <<i+1<<". " << a.userGames[i].name << endl;
+	}
+}
+
+void ShowFriends(User a) {
+
 }
 //
 //void ShowNames(User*& arr, int usersAmount) {

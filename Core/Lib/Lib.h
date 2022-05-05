@@ -1,4 +1,5 @@
 #pragma once
+
 #define _CRT_SECURE_NO_WARNINGS
 //<--------iostream-------->
 #include <iostream>
@@ -18,12 +19,29 @@ using std::setw;
 #define center 55
 #define CLEAR system("cls")
 #define PAUSE system("PAUSE")
-static int gamesAvailable=0;
-static string* gamesAvailableArr;
+int GetMaxGames(); 
+static int gamesAvailable= GetMaxGames();
+static string* gamesAvailableArr = new string[gamesAvailable];
+
 static int usersAmount = 0;
 static string* userNames;
 static int index = 0;
 
+static int GetMaxGames() {
+    string buf;
+    ifstream f1("../Inf/GamesNames.txt", ios::in);
+    if (f1.is_open()) {
+        while (getline(f1, buf)) {
+            gamesAvailable++;
+        }
+        f1.close();
+    }
+    else {
+        cout << "Error opening file!!" << endl;
+    }
+
+    return gamesAvailable;
+}
 static void PrintPhrase(string phrase, int dig) {
     char inStr[256];
     _itoa(dig, inStr, 10);

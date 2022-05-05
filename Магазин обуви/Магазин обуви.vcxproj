@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="..\Core\Entities\Game\Game.cpp" />
     <ClCompile Include="..\Core\Entities\User\User.cpp" />
+    <ClCompile Include="..\Core\Lib\Lib.cpp" />
     <ClCompile Include="..\main.cpp" />
   </ItemGroup>
   <ItemGroup>
