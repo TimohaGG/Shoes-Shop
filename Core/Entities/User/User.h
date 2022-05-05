@@ -3,11 +3,12 @@ struct User {
 	//<-------constructor-------->
 	User() {
 		randNumber(arrNumbersGameNames, gamesAvailable, userGamesAmount);
-		randNumber(arrNumbersUserNames, usersAmount, usersAmount);
 		
-		UserName = userNames[arrNumbersUserNames[index]];
-		index++;
-		password = 111;
+		
+		//UserName = userNames[arrNumbersUserNames[index]]; 
+		////cout << UserName<<endl;
+		//index++;
+		password = "111";
 		for (size_t i = 0; i < userGamesAmount; i++)
 		{
 			
@@ -28,7 +29,7 @@ struct User {
 	int userGamesAmount = rand() % ((gamesAvailable+1) -1)+1;
 	Game* userGames = new Game[userGamesAmount];
 	int* arrNumbersGameNames = new int[userGamesAmount];
-	int* arrNumbersUserNames = new int[usersAmount];
+	
 	void randNumber(int*& arrNumbers, int gamesAvailable, int userGamesAmount);
 	
 	
@@ -42,4 +43,5 @@ void ShowDownloads(User a);
 bool ShowNotDownloads(User a);
 void LibraryMenu(User a);
 Game DownloadGame(Game*& userGames);
+User Login(User* a, int usersAmount);
 //void ShowNames(User*& arr, int usersAmount);

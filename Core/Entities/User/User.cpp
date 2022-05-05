@@ -158,6 +158,40 @@ void LibraryMenu(User a)
 	CLEAR;
 	
 }
+
+User Login(User* a, int usersAmount) {
+	while (true) {
+		cout << "Введите логин: " << endl;
+		string login;
+		getline(cin, login);
+		int i = 0;
+		for (; i < usersAmount; i++)
+		{
+			if (a[i].UserName == login) {
+				cout << "Введите пароль: " << endl;
+				string password;
+				getline(cin, password);
+				if (a[i].password == password) {
+					cout << "Добро пожаловать " << a[i].UserName << "!!" << endl;
+					PAUSE;
+					CLEAR;
+					return a[i];
+				}
+				else {
+					cout << "Неверный пароль!!!" << endl<<"Нажмите 0 для выхода";
+					int choise;
+					cin >> choise;
+					if (choise == 0) break;
+					else continue;
+				}
+				break;
+			}
+		}
+	}
+	
+	
+	
+}
 //
 //void ShowNames(User*& arr, int usersAmount) {
 //	for (size_t i = 0; i < usersAmount; i++)

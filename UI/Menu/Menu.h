@@ -14,8 +14,16 @@ struct Menu {
 		userNames = new string[usersAmount];
 		GetGamesNames(gamesAvailableArr);
 		GetUsersNames(userNames);
+		for (size_t i = 0; i < usersAmount; i++)
+		{
+			cout << userNames[i]<<endl;
+		}
+		int* arrNumbersUserNames = new int[usersAmount];
+		//randNumber(arrNumbersUserNames, usersAmount, usersAmount); //Допилить
 		User* user1=new User[usersAmount];
 		
+		Login(user1, usersAmount);
+
 		void(*menu[4])(User user1) {Shop,Library,Community, Profile};
 		while (true) {
 			cout << "<----------Steam---------->" << endl;
