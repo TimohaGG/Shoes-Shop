@@ -177,7 +177,7 @@ int Login(User* a, int usersAmount) {
 				string password;
 				getline(cin, password);
 				if (a[i].password == password) {
-					cout << "Добро пожаловать " << a[i].UserName << "!!" << endl;
+					
 					PAUSE;
 					CLEAR;
 					return i;
@@ -275,13 +275,4 @@ void ShowProfile(User a) {
 	}
 }
 
-void ShowFriends(User a) {
 
-}
-//
-//void ShowNames(User*& arr, int usersAmount) {
-//	for (size_t i = 0; i < usersAmount; i++)
-//	{
-//		cout << arr[i].UserName << endl;
-//	}
-//}

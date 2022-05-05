@@ -8,7 +8,7 @@ void Profile(User a);
 struct Menu {
 	Menu() {
 		
-		//gamesAvailable = GetMaxGames();
+		
 		
 		usersAmount = GetUsersAmount();
 		userNames = new string[usersAmount];
@@ -24,16 +24,31 @@ struct Menu {
 			user1[i].fillUser(gamesAvailableArr);
 		}
 		FillUsernames(user1, userNames, arrNumbersUserNames, usersAmount);
-		//int index= Login(user1, usersAmount);
-		int index=Registration(user1, usersAmount);
-		//Login(user1, usersAmount);
+		int choise;
+		do {
+			cout << "1. Войти" << endl << "2. Зарегестрироваться" << endl;
+			
+			cin >> choise;
+			CLEAR;
+		
+		} while (choise !=1&& choise !=2);
+		int index;
+		if (choise == 1) {
+			cin.ignore();
+			index = Login(user1, usersAmount);
+		}
+		else {
+			cin.ignore();
+			index = Registration(user1, usersAmount);
+		}
+		cout << "Добро пожаловать " << user1[index].UserName << "!!" << endl;
 
 		void(*menu[3])(User user1) {Shop,Library, Profile};
 		while (true) {
 			cout << "<----------Steam---------->" << endl;
 			cout << "1. Магазин" << endl
 				<< "2. Библиотека" << endl
-				<< "4. Профиль" << endl
+				<< "3. Профиль" << endl
 				<< "0. Выход" << endl;
 			int choise;
 			do
@@ -115,10 +130,24 @@ void Library(User user1) {
 
 
 void Profile(User user1) {
-	cout << "<----------Profile---------->" << endl;
-	cout << "1. Профиль" << endl
-		<< "2. Друзья" << endl
-		<< "0. Выход" << endl;
-	void(*menuProfile[3])(User a) {ShowProfile, };
+	while (true) {
+		cout << "<----------Profile---------->" << endl;
+		cout << "1. Профиль" << endl
+			<< "0. Выход" << endl;
+
+		int choise;
+		cin >> choise;
+		if (choise == 1) {
+			CLEAR;
+			ShowProfile(user1);
+		}
+		else {
+			CLEAR;
+			break;
+		}
+		PAUSE;
+		CLEAR;
+	}
+	
 	
 }
