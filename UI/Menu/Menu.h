@@ -99,7 +99,7 @@ void Library(User user1) {
 		CLEAR;
 	}
 	CLEAR;
-	system("pause");
+	
 }
 
 void Community(User user1) {

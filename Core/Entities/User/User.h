@@ -39,7 +39,7 @@ void ShowGamesRecomendations(User a);
 void ShowGamesNew(User a);
 void ShowGames(User a);
 void ShowDownloads(User a);
-void ShowNotDownloads(User a);
+bool ShowNotDownloads(User a);
 void LibraryMenu(User a);
 Game DownloadGame(Game*& userGames);
 //void ShowNames(User*& arr, int usersAmount);

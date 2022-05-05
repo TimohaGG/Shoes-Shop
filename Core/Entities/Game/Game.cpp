@@ -63,7 +63,14 @@ string* GetUsersNames(string*& arr) {
 
 void Game::ShowGame() {
 	if (newGame)cout << "Новинка!!!"<<endl;
-	
+	cout << name << endl;
+	/*cout << "Часов потрачено: " << hoursPlayed << endl;
+	cout << "Достижений выполнено: " << achivements << " %" << endl;*/
+	cout << "Рейтинг: " << raiting << endl;
+	cout << "Загрузки: " << downloads << endl;
+	cout << "Памяти требуется: " << memoryNeeded << endl << endl;
+
+
 	/*PrintWord(name);
 	PrintPhrase("Часов потрачено: ",hoursPlayed);
 	PrintPhrase("Достижений выполнено: ", achivements);
@@ -72,11 +79,5 @@ void Game::ShowGame() {
 	PrintPhrase("Памяти требуется: ", memoryNeeded);
 	PrintWord("<------------------------->");
 	cout << endl << endl;*/
-	cout << name << endl;
-	cout << "Часов потрачено: " << hoursPlayed << endl;
-	cout << "Достижений выполнено: " << achivements << " %" << endl;
-	cout << "Рейтинг: " << raiting << endl;
-	cout << "Загрузки: " << downloads << endl;
-	cout << "Памяти требуется: " << memoryNeeded << endl << endl;
 	
 }

@@ -6,7 +6,7 @@
 		HWND hWindowConsole = GetConsoleWindow();
 		RECT r;
 		GetWindowRect(hWindowConsole, &r); //stores the console's current dimensions
-		MoveWindow(hWindowConsole, r.left, r.top, 900, 900, TRUE);
+		MoveWindow(hWindowConsole, r.left, r.top, 900, 500, TRUE);
 	
 	
 	Menu menu;

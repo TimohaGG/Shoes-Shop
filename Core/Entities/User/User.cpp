@@ -94,7 +94,7 @@ void ShowDownloads(User a) {
 	}
 }
 
-void ShowNotDownloads(User a)
+bool ShowNotDownloads(User a)
 {
 	bool available = false;
 	for (size_t i = 0; i < a.userGamesAmount; i++)
@@ -106,26 +106,32 @@ void ShowNotDownloads(User a)
 	}
 	if (!available) {
 		cout << "Здесь ничего(" << endl;
+		return false;
 	}
+	return true;
 }
 
 Game DownloadGame(User& a) {
 	while (true) {
 		cout << "Какую игру установить?"<<endl<<endl;
 		string choise;
-		ShowNotDownloads(a);
-		cin.ignore(); 
-		getline(cin, choise);
-		for (size_t i = 0; i < a.userGamesAmount; i++)
-		{
-			if (choise == a.userGames[i].name) {
-				a.userGames[i].instaled = true;
-				return* a.userGames;
+		if (ShowNotDownloads(a)) {
+			cin.ignore();
+			getline(cin, choise);
+			for (size_t i = 0; i < a.userGamesAmount; i++)
+			{
+				if (choise == a.userGames[i].name) {
+					a.userGames[i].instaled = true;
+					return*a.userGames;
+				}
 			}
+			cout << "Такой игры нету" << endl;
+			PAUSE;
+			CLEAR;
 		}
-		cout << "Такой игры нету"<<endl;
-		PAUSE;
-		CLEAR;
+		else {
+			break;
+		}
 	}
 }
 
@@ -137,18 +143,19 @@ void LibraryMenu(User a)
 			"0. Выход" << endl;
 		int choise;
 		cin >> choise;
-		switch (choise) {
-		case 1: {
+		if(choise == 1) {
 			ShowDownloads(a);
-		}break;
-		case 2: {
-			DownloadGame(a);
-		}break;
-		default: {
-		}break;
 		}
+		else if (choise == 2) {
+			DownloadGame(a);
+		}
+		else {
+			break;
+		}
+		PAUSE;
+		CLEAR;
 	}
-	
+	CLEAR;
 	
 }
 //
